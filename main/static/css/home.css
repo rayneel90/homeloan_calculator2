@@ -1,0 +1,9 @@
+.fixed{
+    overflow-x:auto;
+
+}
+
+.hfixed{
+	overflow-y: auto;
+	max-height: 600px;
+}

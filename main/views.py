@@ -2,7 +2,7 @@ from django.views import View
 from django.shortcuts import HttpResponse, render
 from django.forms.models import model_to_dict
 from .forms import MyForms
-from .script import calculation
+from .calculator import calculation
 
 
 class MainView(View):
@@ -15,6 +15,7 @@ class MainView(View):
         form = MyForms(request.POST, auto_id="")
         if form.is_valid():
             indat = form.save()
+            print(model_to_dict(indat))
             outdat = calculation(**model_to_dict(indat))
         else:
             print(form.errors, '\n'*30)

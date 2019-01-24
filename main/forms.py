@@ -15,7 +15,7 @@ class MyForms(forms.ModelForm):
         self.helper.layout = Layout(
             Div(
                 Div(
-                    PrependedText('price', '&#8377'),
+                    PrependedText('prop_price', '&#8377'),
                     css_class="col-6"
                 ),
                 Div(
@@ -31,8 +31,44 @@ class MyForms(forms.ModelForm):
                     css_class="col-7"
                 ),
                 Div(
-                    PrependedText('early_repay', '&#8377'),
-                    css_class="col-7"
+                    PrependedText('annual_early_repay', '&#8377'),
+                    css_class="col-6"
+                ),
+                Div(
+                    PrependedText('date_of_purchase', '&#8377'),
+                    css_class="col-6"
+                ),
+                Div(
+                    PrependedText('months_to_possession', '&#8377'),
+                    css_class="col-6"
+                ),
+                Div(
+                    PrependedText('monthly_rent_earning', '&#8377'),
+                    css_class="col-6"
+                ),
+                Div(
+                    PrependedText('annual_maintenance', '&#8377'),
+                    css_class="col-6"
+                ),
+                Div(
+                    PrependedText('annual_prop_tax', '&#8377'),
+                    css_class="col-6"
+                ),
+                Div(
+                    PrependedText('limit_80c', '&#8377'),
+                    css_class="col-6"
+                ),
+                Div(
+                    PrependedText('self_pf_contri', '&#8377'),
+                    css_class="col-6"
+                ),
+                Div(
+                    PrependedText('int_rebate_limit', '&#8377'),
+                    css_class="col-6"
+                ),
+                Div(
+                    PrependedText('rd_rate', '&#8377'),
+                    css_class="col-6"
                 ),
                 css_class='row'
             ),

@@ -42,6 +42,9 @@ roi = roi/1200
 principal = prop_price -downpay
 emi = principal * roi * (1+roi)**tenure / ((1+roi)**tenure - 1)
 tax_princi = (limit_80c - self_pf_contri)/12
+
+month_of_possession = date_of_purchase + relativedelta(months=months_to_possession)
+
 tax_months = 4 - month_of_possession.month if month_of_possession.month < 4 \
     else 16 - month_of_possession.month
 
@@ -58,10 +61,10 @@ fm = (date_of_purchase.month + 9) % 12  # convert julian month to fiscal month
 fm = fm if fm else 12  # replace month 0 with month 12
 
 for index in range(1, months_to_possession):
-    date =
+    date = date_of_purchase + relativedelta(months=index)
     interest = principal * roi
     int_accumulate += interest
-    premi_dat.append({'month': month, 'pos': principal, 'emi': interest,
+    premi_dat.append({'month': 0, 'pos': principal, 'emi': interest,
                       'interest_paid': interest,
                       'principle_repaid': None,
                       'Extra_repaid': None, 'prop_tax': None,
