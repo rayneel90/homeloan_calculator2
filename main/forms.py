@@ -9,7 +9,9 @@ class MyForms(forms.ModelForm):
     class Meta:
         model = Query
         fields = '__all__'
-
+        widgets = {
+            'date': forms.DateInput(attrs={'class':'datepicker'}),
+        }
     def __init__(self, *args, **kwargs):
         self.helper = FormHelper()
         self.helper.layout = Layout(
@@ -19,23 +21,27 @@ class MyForms(forms.ModelForm):
                     css_class="col-6"
                 ),
                 Div(
-                    PrependedText('downpay', '&#8377'),
+                    PrependedText('other_cost', '&#8377'),
                     css_class="col-6"
                 ),
                 Div(
+                    AppendedText('ltv', '%'),
+                    css_class="col-4"
+                ),
+                Div(
                     AppendedText('roi','%'),
-                    css_class="col-5"
+                    css_class="col-4"
                 ),
                 Div(
                     AppendedText('tenure','Months'),
-                    css_class="col-7"
+                    css_class="col-4"
                 ),
                 Div(
                     PrependedText('annual_early_repay', '&#8377'),
                     css_class="col-6"
                 ),
                 Div(
-                    PrependedText('date_of_purchase', '&#8377'),
+                    'date_of_purchase',
                     css_class="col-6"
                 ),
                 Div(
