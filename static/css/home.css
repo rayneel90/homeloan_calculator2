@@ -1,0 +1,11 @@
+table{
+	width: auto !important;
+}
+thead, tbody { display: block; }
+
+tbody {
+    height: 600px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: auto;  /* Hide the horizontal scroll */
+}
+

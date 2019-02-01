@@ -30,19 +30,20 @@ rd_rate = 7.5
 #                              EMI Computation                                 #
 ################################################################################
 
-def calculation(prop_price = 3.3e6 , downpay = 201800+1680+3.3e5, roi = 7.9, tenure = 180, annual_early_repay = 1e5,
+def calculation(prop_price = 3.3e6 , other_cost = 201800+1680+3.3e5, ltv = 80, roi = 7.9, tenure = 180, annual_early_repay = 1e5,
                 date_of_purchase=date(2019, 2, 5), months_to_possession = 24, monthly_rent_earning = 12000 ,
                 annual_maintenance=30000, annual_prop_tax = 7000 , limit_80c = 150000 , self_pf_contri = 48600,
                 int_rebate_limit=200000, rd_rate = 7.5, premi=False, **kwargs):
-    roi = roi/1200
-    principal = prop_price -downpay
+    roi /= 1200
+    ltv /= 100
+    principal = prop_price * (ltv)
     EMI = principal * roi * (1+roi)**tenure / ((1+roi)**tenure - 1)
     tax_rebate_princi_limit = (limit_80c - self_pf_contri)
-    rd_rate = rd_rate / 100
+    rd_rate /= 100
 
 
     dat = [{'date': date_of_purchase, 'pos': principal, 'emi': 0, 'interest_paid': 0,
-            'principle_repaid': 0, 'extra_repaid': downpay, 'prop_tax': 0,
+            'principle_repaid': 0, 'extra_repaid': other_cost + principal * (1-ltv), 'prop_tax': 0,
             'maintenance': 0, 'rent': 0, 'tax_save_princi': 0, 'tax_save_interest': 0}]
     int_accumulate = 0
     for month in range(1,months_to_possession):

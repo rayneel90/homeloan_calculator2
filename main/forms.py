@@ -17,63 +17,43 @@ class MyForms(forms.ModelForm):
         self.helper.layout = Layout(
             Div(
                 Div(
-                    PrependedText('prop_price', '&#8377'),
+                    Div(
+                        Div(PrependedText('prop_price', '&#8377'), css_class="col-3"),
+                        Div(PrependedText('other_cost', '&#8377'), css_class="col-3"),
+                        Div(AppendedText('tenure', 'Months'), css_class="col-3"),
+                        Div('date_of_purchase', css_class="col-3"),
+                        css_class="row"
+                    ),
+                    css_class="col-7"
+                ),
+
+                Div(
+                    Div(
+                        Div(AppendedText('ltv', '%'), css_class="col-3"),
+                        Div(AppendedText('roi', '%'), css_class="col-3"),
+                        Div(AppendedText('annual_early_repay', '&#8377'), css_class="col-4"),
+                        css_class="row"
+                    ),
+                    css_class="col-5"
+                ),
+                Div(
+                    Div(
+                        Div(AppendedText('months_to_possession', 'Months'), css_class="col-3"),
+                        Div(PrependedText('monthly_rent_earning', '&#8377'), css_class="col-3"),
+                        Div(PrependedText('annual_maintenance', '&#8377'), css_class="col-3"),
+                        Div(PrependedText('annual_prop_tax', '&#8377'), css_class="col-3"),
+                        css_class="row"
+                    ),
                     css_class="col-6"
                 ),
                 Div(
-                    PrependedText('other_cost', '&#8377'),
-                    css_class="col-6"
-                ),
-                Div(
-                    AppendedText('ltv', '%'),
-                    css_class="col-4"
-                ),
-                Div(
-                    AppendedText('roi','%'),
-                    css_class="col-4"
-                ),
-                Div(
-                    AppendedText('tenure','Months'),
-                    css_class="col-4"
-                ),
-                Div(
-                    PrependedText('annual_early_repay', '&#8377'),
-                    css_class="col-6"
-                ),
-                Div(
-                    'date_of_purchase',
-                    css_class="col-6"
-                ),
-                Div(
-                    PrependedText('months_to_possession', '&#8377'),
-                    css_class="col-6"
-                ),
-                Div(
-                    PrependedText('monthly_rent_earning', '&#8377'),
-                    css_class="col-6"
-                ),
-                Div(
-                    PrependedText('annual_maintenance', '&#8377'),
-                    css_class="col-6"
-                ),
-                Div(
-                    PrependedText('annual_prop_tax', '&#8377'),
-                    css_class="col-6"
-                ),
-                Div(
-                    PrependedText('limit_80c', '&#8377'),
-                    css_class="col-6"
-                ),
-                Div(
-                    PrependedText('self_pf_contri', '&#8377'),
-                    css_class="col-6"
-                ),
-                Div(
-                    PrependedText('int_rebate_limit', '&#8377'),
-                    css_class="col-6"
-                ),
-                Div(
-                    PrependedText('rd_rate', '&#8377'),
+                    Div(
+                        Div(PrependedText('limit_80c', '&#8377'), css_class="col-3"),
+                        Div(PrependedText('self_pf_contri', '&#8377'), css_class="col-3"),
+                        Div(PrependedText('int_rebate_limit', '&#8377'), css_class="col-3"),
+                        Div(AppendedText('rd_rate', '%'), css_class="col-3"),
+                        css_class="row"
+                    ),
                     css_class="col-6"
                 ),
                 css_class='row'
